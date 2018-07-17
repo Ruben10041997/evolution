@@ -1,0 +1,120 @@
+body {
+  background: #FFF0E3;
+  background-image: -o-linear-gradient(bottom, #FFFAF5 0%, #FFECE0 100%);
+  background-image: -moz-linear-gradient(bottom, #FFFAF5 0%, #FFECE0 100%);
+  background-image: -webkit-linear-gradient(bottom, #FFFAF5 0%, #FFECE0 100%);
+  background-image: -ms-linear-gradient(bottom, #FFFAF5 0%, #FFECE0 100%);
+  background-image: linear-gradient(to bottom, #FFFAF5 0%, #FFECE0 100%);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed!important;
+}
+
+#board{
+  width: 100%;
+  height: 100%;
+  position:relative;
+}
+
+#board.rot_60 {
+    transform: rotate(-60deg);
+}
+
+#board.rot_120 {
+    transform: rotate(-120deg);
+}
+
+#board.rot_180 {
+    transform: rotate(-180deg);
+}
+
+.rot_60 .checkerCell {
+  transform: rotate(60deg);
+}
+
+.rot_120 .checkerCell {
+  transform: rotate(120deg);
+}
+
+.rot_180 .checkerCell {
+  transform: rotate(180deg);
+}
+
+.rot_60 .checker, .rot_120 .checker, .rot_180 .checker  {
+  transform: rotate(0deg);
+}
+
+.checkerCell {
+  border: 1px solid #E0D8C1;
+  padding: 0.3%;
+  width: 4.5%;
+  height: 4.5%;
+  border-radius: 100%;
+  opacity: 1;
+  text-align: center;
+  box-shadow: inset 0 4px 6px rgba(0,0,0,0.3), 0 2px 1px #fff;
+  background-color: #BDB5A0;
+}
+
+.checkerCell.selected {
+  background-color: #9b59b6;
+  box-shadow: 0 0 12px #9b59b6 !important;
+  border-color: #9b59b6;
+}
+
+.checker {
+  width : 100%;
+  height : 100%;
+  border-radius: 50px;
+  position: relative;
+  z-index: 5;
+  opacity: 0.5;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.checker.drag {
+  box-shadow: 0 0 12px #FFB752;
+}
+
+.checkerCell.valid{
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.5), 0 0 20px #fff;
+}
+
+.valid .checker{
+  opacity: 1;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.checker_R {
+  background-color: #e74c3c;
+  background: -webkit-radial-gradient(35% 25%, circle, #FF877A 1px, #e74c3c 3%, #B03528 60%, #e74c3c 100%); 
+}
+
+.checker_G {
+  background-color: #35DB75;
+  background: -webkit-radial-gradient(35% 25%, circle, #85FFB4 1px, #35DB75 3%, #20AB56 60%, #35DB75 100%); 
+}
+
+.checker_B {
+  background-color: #347BD9;
+  background: -webkit-radial-gradient(35% 25%, circle, #9CC7FF 1px, #61A5FF 3%, #347BD9 60%, #61A5FF 100%); 
+}
+
+.checker_Y {
+  background-color: #f1c40f;
+  background: -webkit-radial-gradient(35% 25%, circle, #FFEA96 1px, #FFDB4D 3%, #f1c40f 60%, #FFDB4D 100%); 
+}
+
+.checker_K {
+  background-color: #343D45;
+  background: -webkit-radial-gradient(35% 25%, circle, #8E9194 1px, #5A646E 3%, #343D45 60%, #5A646E 100%); 
+}
+
+.checker_W {
+  background-color: #E6E6E6;
+  background: -webkit-radial-gradient(35% 25%, circle, #FFFFFF 1px, #F0F0F0 3%, #E6E6E6 60%, #F0F0F0 100%); 
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- build:[manifest] game.appcache -->
+<html lang="en" ng-app="myApp" ng-strict-di>
+<!-- /build -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Chinese checkers</title>
+    <meta name="description" content="Chinese checkers game">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- build:js http://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js -->
+    <script crossorigin="anonymous" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <!-- /build -->
+
+    <!-- build:js http://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-touch.min.js -->
+    <script crossorigin="anonymous" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-touch.js"></script>
+    <!-- /build -->
+
+    <!-- build:js dist/everything.min.js -->
+    <script crossorigin="anonymous" src="src/gameLogic.js"></script>
+    <script crossorigin="anonymous" src="src/game.js"></script>
+    <!-- /build -->
+
+    <!-- build:js http://yoav-zibin.github.io/emulator/dist/turnBasedServices.3.min.js -->
+    <script crossorigin="anonymous" src="http://yoav-zibin.github.io/emulator/dist/turnBasedServices.3.js"></script>
+    <!-- /build -->
+
+    <link rel="stylesheet" type="text/css" href="http://yoav-zibin.github.io/emulator/main.css">
+    <link rel="stylesheet" type="text/css" href="game.css">
+</head>
+<body ng-controller="Ctrl" data-ng-init="init()">
+
+    <div id="gameArea">
+        <div id="board">
+            <div ng-repeat="row in board track by $index">
+                <div ng-repeat="cell in row track by $index"
+                     ng-style="{
+                        position:'absolute',
+                        top: setPagePositionTop($parent.$index, $index),
+                        left: setPagePosition($index, $parent.$index) }"
+                     ng-class="{
+                        checkerCell: cell != ' ',
+                        valid: isSelectable($parent.$index, $index) }"
+                     data-row="{{$parent.$index}}" data-col="{{$index}}">
+                    <div ng-class="getCheckerClass(board.indexOf(row), $index)"
+                         id="{{'checker_' + $parent.$index + 'x' + $index}}"
+                         data-row="{{$parent.$index}}" data-col="{{$index}}" >
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
